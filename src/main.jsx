@@ -1,18 +1,39 @@
-// main.tsx or main.jsx
-import { NextUIProvider } from '@nextui-org/react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+
+// const router = createBrowserRouter([
+// 	{
+// 		path: '/',
+// 		element: <App />,
+// 		errorElement: <ErrorPage />,
+// 		children: [
+// 			{
+// 				path: 'about',
+// 				element: <About />
+// 			},
+// 			{
+// 				path: 'contact',
+// 				element: <Contact />
+// 			},
+// 			{
+// 				path: 'portfolio',
+// 				element: <Portfolio />
+// 			},
+// 			{
+// 				path: 'resume',
+// 				element: <Resume />
+// 			}
+// 		]
+// 	}
+// ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<NextUIProvider>
-			<Header />
+		<BrowserRouter>
 			<App />
-			<Footer />
-		</NextUIProvider>
+		</BrowserRouter>
 	</React.StrictMode>
 )

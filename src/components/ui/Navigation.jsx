@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import {
 	Link,
@@ -13,6 +14,7 @@ import {
 import { Computer, Github, Linkedin, Mail } from 'lucide-react'
 
 const Navigation = () => {
+	const path = useLocation().pathname
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
 	const menuItems = ['About Me', 'Portfolio', 'Contact', 'Resume']
@@ -21,31 +23,20 @@ const Navigation = () => {
 			<NavbarContent>
 				<NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' />
 				<NavbarBrand className='gap-2'>
-					<Computer/>
-					<p className='font-bold text-inherit'>Brandon Mullins</p>
+					<Computer />
+					<Link className='font-bold text-inherit' href='/' aria-current='page'>
+						Brandon Mullins
+					</Link>
 				</NavbarBrand>
 			</NavbarContent>
 			<NavbarContent className='hidden sm:flex gap-4' justify='center'>
-				<NavbarItem>
-					<Link color='foreground' href='#'>
-						About Me
-					</Link>
-				</NavbarItem>
-				<NavbarItem isActive>
-					<Link href='#' aria-current='page'>
-						Portfolio
-					</Link>
-				</NavbarItem>
-				<NavbarItem>
-					<Link color='foreground' href='#'>
-						Contact
-					</Link>
-				</NavbarItem>
-				<NavbarItem>
-					<Link color='foreground' href='#'>
-						Resume
-					</Link>
-				</NavbarItem>
+				{menuItems.map((item, index) => (
+					<NavbarItem key={`${item}-${index}`} isActive={path === `/${item}`.split(' ').join('').toLowerCase()}>
+						<Link color={'foreground'} className='w-full' href={`/${item}`.split(' ').join('').toLowerCase()} size='lg'>
+							{item}
+						</Link>
+					</NavbarItem>
+				))}
 			</NavbarContent>
 			<NavbarContent justify='end'>
 				<NavbarItem className='flex'>
@@ -66,8 +57,8 @@ const Navigation = () => {
 			</NavbarContent>
 			<NavbarMenu>
 				{menuItems.map((item, index) => (
-					<NavbarMenuItem key={`${item}-${index}`}>
-						<Link color={'foreground'} className='w-full' href='#' size='lg'>
+					<NavbarMenuItem key={`${item}-${index}`} isActive={path === `/${item}`.split(' ').join('').toLowerCase()}>
+						<Link color={'foreground'} className='w-full' href={`/${item}`.split(' ').join('').toLowerCase()} size='lg'>
 							{item}
 						</Link>
 					</NavbarMenuItem>
