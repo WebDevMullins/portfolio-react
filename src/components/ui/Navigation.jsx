@@ -19,39 +19,39 @@ const Navigation = () => {
 
 	const menuItems = ['About Me', 'Portfolio', 'Contact', 'Resume']
 	return (
-		<Navbar onMenuOpenChange={setIsMenuOpen}
-		classNames={{
-			item: [
-				"flex",
-				"relative",
-				"h-10",
-				"items-center",
-				"data-[active=true]:after:content-['']",
-				"data-[active=true]:after:absolute",
-				"data-[active=true]:after:bottom-0",
-				"data-[active=true]:after:left-0",
-				"data-[active=true]:after:right-0",
-				"data-[active=true]:after:h-[2px]",
-				"data-[active=true]:after:rounded-[2px]",
-				"data-[active=true]:after:bg-primary",
-			],
-			menuItem: [
-				"flex",
-				"relative",
-				"h-10",
-				"items-center",
-				"data-[active=true]:after:content-['']",
-				"data-[active=true]:after:absolute",
-				"data-[active=true]:after:bottom-0",
-				"data-[active=true]:after:left-0",
-				"data-[active=true]:after:right-0",
-				"data-[active=true]:after:h-[2px]",
-				"data-[active=true]:after:w-[85px]",
-				"data-[active=true]:after:rounded-[2px]",
-				"data-[active=true]:after:bg-primary",
-			],
-		}}
-		>
+		<Navbar
+			onMenuOpenChange={setIsMenuOpen}
+			classNames={{
+				item: [
+					'flex',
+					'relative',
+					'h-10',
+					'items-center',
+					"data-[active=true]:after:content-['']",
+					'data-[active=true]:after:absolute',
+					'data-[active=true]:after:bottom-0',
+					'data-[active=true]:after:left-0',
+					'data-[active=true]:after:right-0',
+					'data-[active=true]:after:h-[2px]',
+					'data-[active=true]:after:rounded-[2px]',
+					'data-[active=true]:after:bg-primary'
+				],
+				menuItem: [
+					'flex',
+					'relative',
+					'h-10',
+					'items-center',
+					"data-[active=true]:after:content-['']",
+					'data-[active=true]:after:absolute',
+					'data-[active=true]:after:bottom-0',
+					'data-[active=true]:after:left-0',
+					'data-[active=true]:after:right-0',
+					'data-[active=true]:after:h-[2px]',
+					'data-[active=true]:after:w-[85px]',
+					'data-[active=true]:after:rounded-[2px]',
+					'data-[active=true]:after:bg-primary'
+				]
+			}}>
 			<NavbarContent>
 				<NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' />
 				<NavbarBrand className='gap-2'>

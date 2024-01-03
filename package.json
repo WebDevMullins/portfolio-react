@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.0.3",
     "framer-motion": "^10.16.16",
     "lucide-react": "^0.303.0",
     "react": "^18.2.0",
