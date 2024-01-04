@@ -33,7 +33,7 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<App className='h-screen' />
+			<App />
 		</BrowserRouter>
 	</React.StrictMode>
 )
