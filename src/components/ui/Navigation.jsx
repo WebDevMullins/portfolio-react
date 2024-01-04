@@ -20,8 +20,11 @@ const Navigation = () => {
 	const menuItems = ['About Me', 'Portfolio', 'Contact', 'Resume']
 	return (
 		<Navbar
+			className='fixed top-0 bg-transparent'
+			maxWidth='2xl'
 			onMenuOpenChange={setIsMenuOpen}
 			classNames={{
+				base: ['w-2xl'],
 				item: [
 					'flex',
 					'relative',
@@ -34,7 +37,7 @@ const Navigation = () => {
 					'data-[active=true]:after:right-0',
 					'data-[active=true]:after:h-[2px]',
 					'data-[active=true]:after:rounded-[2px]',
-					'data-[active=true]:after:bg-primary'
+					'data-[active=true]:after:bg-red-500'
 				],
 				menuItem: [
 					'flex',
@@ -49,15 +52,17 @@ const Navigation = () => {
 					'data-[active=true]:after:h-[2px]',
 					'data-[active=true]:after:w-[85px]',
 					'data-[active=true]:after:rounded-[2px]',
-					'data-[active=true]:after:bg-primary'
+					'data-[active=true]:after:bg-red-500'
 				]
 			}}>
 			<NavbarContent>
 				<NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' />
 				<NavbarBrand className='gap-2'>
-					<Computer />
-					<Link className='font-bold text-inherit' href='/' aria-current='page'>
-						Brandon Mullins
+					<Computer className='text-red-500 hidden lg:block' />
+					<Link className='font-semi text-xl lg:text-3xl text-inherit' href='/' aria-current='page'>
+						<h1>
+							Brandon <span className='font-thin'> Mullins</span>
+						</h1>
 					</Link>
 				</NavbarBrand>
 			</NavbarContent>
@@ -73,17 +78,17 @@ const Navigation = () => {
 			<NavbarContent justify='end'>
 				<NavbarItem className='flex'>
 					<Link href='https://github.com/WebDevMullins'>
-						<Github />
+						<Github className='text-red-500' />
 					</Link>
 				</NavbarItem>
 				<NavbarItem className='flex'>
 					<Link href='https://www.linkedin.com/in/brandon-mullins/'>
-						<Linkedin />
+						<Linkedin className='text-red-500' />
 					</Link>
 				</NavbarItem>
 				<NavbarItem className='flex'>
 					<Link href='mailto:brandon@webdevmullins.com'>
-						<Mail />
+						<Mail className='text-red-500' />
 					</Link>
 				</NavbarItem>
 			</NavbarContent>
