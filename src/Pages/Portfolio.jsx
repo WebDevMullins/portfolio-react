@@ -46,20 +46,23 @@ const Portfolio = () => {
 		}
 	]
 	return (
-		<div className='min-h-screen flex flex-col items-center justify-center mx-auto max-w-[900px] px-4 my-20 lg:my-0'>
-			<div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 md:gap-4'>
-				{projects.map((project, index) => (
-					<Project
-						key={index}
-						title={project.title}
-						github={project.github}
-						href={project.href}
-						img={project.img}
-						tech={project.tech}
-					/>
-				))}
+		<main className="min-h-screen flex flex-col items-center justify-center mx-auto bg-cover bg-[url('/bg-explosion.png')]">
+			<div className='flex flex-col items-center justify-center max-w-[900px] px-4 gap-8 my-20 lg:my-0'>
+				<h1 className='text-4xl font-bold'>Projects</h1>
+				<div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
+					{projects.map((project, index) => (
+						<Project
+							key={index}
+							title={project.title}
+							github={project.github}
+							href={project.href}
+							img={project.img}
+							tech={project.tech}
+						/>
+					))}
+				</div>
 			</div>
-		</div>
+		</main>
 	)
 }
 
