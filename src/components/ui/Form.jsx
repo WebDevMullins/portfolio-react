@@ -1,29 +1,15 @@
-import { zodResolver } from '@hookform/resolvers/zod'
+import PropTypes from 'prop-types'
+
 import { Button, Input, Textarea } from '@nextui-org/react'
-import { Send } from 'lucide-react'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { Mail, MapPinned, Phone, Send } from 'lucide-react'
 
-const formSchema = z.object({
-	name: z.string().min(4, 'Name must be at least 4 characters'),
-	email: z.string().email('Invalid email address'),
-	message: z.string().min(8, 'Message must be at least 8 characters')
-})
-
-const Form = () => {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors, isSubmitting },
-		reset
-	} = useForm({
-		resolver: zodResolver(formSchema)
-	})
-
-	const onSubmit = async (data) => {
-		await new Promise((resolve) => setTimeout(resolve, 5000))
-		console.log(data)
-		reset()
+const Form = ({ register, handleSubmit, errors, isSubmitting, onSubmit }) => {
+	Form.propTypes = {
+		register: PropTypes.func.isRequired,
+		handleSubmit: PropTypes.func.isRequired,
+		errors: PropTypes.object.isRequired,
+		isSubmitting: PropTypes.bool.isRequired,
+		onSubmit: PropTypes.func.isRequired
 	}
 
 	const options = {
@@ -49,48 +35,95 @@ const Form = () => {
 		errorMessage: ['w-fit', 'backdrop-blur-sm', 'backdrop-saturate-200', 'rounded-xl', 'p-1', 'text-white', 'text-sm']
 	}
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap gap-4'>
-			<Input
-				{...register('name')}
-				isRequired
-				type='text'
-				label='Name'
-				labelPlacement='outside'
-				placeholder='Enter your name'
-				isInvalid={errors.name?.message}
-				errorMessage={errors.name?.message}
-				classNames={options}
-			/>
-			<Input
-				{...register('email')}
-				isRequired
-				type='email'
-				label='Email'
-				labelPlacement='outside'
-				placeholder='you@example.com'
-				isInvalid={errors.email?.message}
-				errorMessage={errors.email?.message}
-				classNames={options}
-			/>
-			<Textarea
-				{...register('message')}
-				isRequired
-				type='text'
-				label='Message'
-				labelPlacement='outside'
-				placeholder='Enter your message'
-				isInvalid={errors.message?.message}
-				errorMessage={errors.message?.message}
-				classNames={options}
-			/>
-			<Button
-				onClick={handleSubmit(onSubmit)}
-				isLoading={isSubmitting}
-				endContent={<Send size={20} />}
-				className='bg-gradient-to-tl from-transparent to-red-700 font-medium'>
-				Submit
-			</Button>
-		</form>
+		<div className='flex flex-col max-w-screen-md md:flex-row gap-0 justify-center border-2 border-neutral-400 rounded-3xl'>
+			<div className='flex md:w-[60%] p-8'>
+				<form onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap gap-4'>
+					<Input
+						{...register('name')}
+						isRequired
+						type='text'
+						label='Name'
+						labelPlacement='outside'
+						placeholder='Enter your name'
+						isInvalid={errors.name?.message}
+						errorMessage={errors.name?.message}
+						classNames={options}
+					/>
+					<Input
+						{...register('email')}
+						isRequired
+						type='email'
+						label='Email'
+						labelPlacement='outside'
+						placeholder='you@example.com'
+						isInvalid={errors.email?.message}
+						errorMessage={errors.email?.message}
+						classNames={options}
+					/>
+					<Input
+						{...register('company')}
+						isRequired
+						type='text'
+						label='Company'
+						labelPlacement='outside'
+						placeholder='Your company'
+						isInvalid={errors.company?.message}
+						errorMessage={errors.company?.message}
+						classNames={options}
+					/>
+					<Textarea
+						{...register('message')}
+						isRequired
+						type='text'
+						label='Message'
+						labelPlacement='outside'
+						placeholder='Enter your message'
+						isInvalid={errors.message?.message}
+						errorMessage={errors.message?.message}
+						classNames={options}
+					/>
+					<Button
+						onClick={handleSubmit(onSubmit)}
+						isLoading={isSubmitting}
+						endContent={<Send size={20} />}
+						className='bg-red-700 font-medium'>
+						Send
+					</Button>
+				</form>
+			</div>
+			<div className='bg-transparent backdrop-saturate-200 flex flex-col md:w-[40%] justify-center gap-2 md:gap-8 p-8 rounded-b-3xl md:rounded-bl-none md:rounded-r-3xl'>
+				<div className='flex gap-4'>
+					<div className='flex flex-col'>
+						<i>
+							<Phone />
+						</i>
+					</div>
+					<div className='flex flex-col'>
+						<p>(512) 300-5410</p>
+					</div>
+				</div>
+				<div className='flex gap-4'>
+					<div className='flex flex-col'>
+						<i>
+							<Mail />
+						</i>
+					</div>
+					<div className='flex flex-col'>
+						<p>brandon@webdevmullins.com</p>
+					</div>
+				</div>
+				<div className='flex gap-4'>
+					<div className='flex flex-col'>
+						<i>
+							<MapPinned />
+						</i>
+					</div>
+					<div className='flex flex-col'>
+						<p>Fort Worth, Texas</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	)
 }
 

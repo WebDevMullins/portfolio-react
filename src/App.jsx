@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import './App.css'
 import About from './Pages/About'
 import Contact from './Pages/Contact'
+import Error from './Pages/Error'
 import Portfolio from './Pages/Portfolio'
 import Resume from './Pages/Resume'
 import Footer from './components/Footer'
@@ -16,11 +17,12 @@ function App() {
 			<NextUIProvider navigate={navigate}>
 				<Header />
 				<Routes>
-					<Route path='/' element={<Navigate to='aboutme'/>} />
+					<Route path='/' element={<Navigate to='aboutme' />} />
 					<Route path='aboutme' element={<About />} />
 					<Route path='portfolio' element={<Portfolio />} />
 					<Route path='contact' element={<Contact />} />
 					<Route path='resume' element={<Resume />} />
+					<Route path='*' element={<Error />} />
 				</Routes>
 				<Footer />
 			</NextUIProvider>
