@@ -38,8 +38,8 @@ const Contact = () => {
 	return (
 		<main className="flex w-full h-dvh flex-col items-center justify-center mx-auto px-8 bg-cover bg-[url('/images/bg-blur.png')]">
 			<div className='flex flex-col items-center gap-y-10'>
-				<h1 className='text-2xl md:text-5xl'>Contact</h1>
-				<p className='flex text-3xl md:text-6xl font-extrabold capitalize'>Get in touch with me</p>
+				<h1 className='text-2xl md:text-4xl'>Contact</h1>
+				<p className='flex text-3xl md:text-5xl font-extrabold capitalize'>Get in touch with me</p>
 				<Form
 					register={register}
 					handleSubmit={handleSubmit}
