@@ -91,7 +91,7 @@ const Form = ({ register, handleSubmit, errors, isSubmitting, onSubmit }) => {
 					</Button>
 				</form>
 			</div>
-			<div className='bg-transparent backdrop-saturate-200 flex flex-col md:w-[40%] justify-center gap-2 md:gap-8 p-8 rounded-b-3xl md:rounded-bl-none md:rounded-r-3xl'>
+			<div className='bg-transparent backdrop-saturate-200 flex flex-col md:w-[40%] justify-center gap-4 md:gap-8 p-8 rounded-b-3xl md:rounded-bl-none md:rounded-r-3xl'>
 				<div className='flex gap-4'>
 					<div className='flex flex-col'>
 						<i>

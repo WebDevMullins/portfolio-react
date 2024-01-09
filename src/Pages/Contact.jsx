@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { useDisclosure } from '@nextui-org/react'
+import { useState } from 'react'
 import Form from '../components/ui/Form'
 import FormModal from '../components/ui/Modal'
-import { useState } from 'react'
 
 const formSchema = z.object({
 	name: z.string().min(4, 'Name must be at least 4 characters'),
@@ -36,20 +36,21 @@ const Contact = () => {
 	}
 
 	return (
-		<main className="flex w-full h-dvh flex-col items-center justify-center mx-auto px-8 bg-cover bg-[url('/images/bg-blur.png')]">
-			<div className='flex flex-col items-center gap-y-10'>
-				<h1 className='text-2xl md:text-4xl'>Contact</h1>
-				<p className='flex text-3xl md:text-5xl font-extrabold capitalize'>Get in touch with me</p>
-				<Form
-					register={register}
-					handleSubmit={handleSubmit}
-					errors={errors}
-					isSubmitting={isSubmitting}
-					onSubmit={onSubmit}
-				/>
-			</div>
+		<>
+			<section className='flex flex-col items-center gap-y-10'>
+				<h1 className='flex text-3xl md:text-5xl font-extrabold capitalize'>Get in touch with me</h1>
+				<div className='px-4'>
+					<Form
+						register={register}
+						handleSubmit={handleSubmit}
+						errors={errors}
+						isSubmitting={isSubmitting}
+						onSubmit={onSubmit}
+					/>
+				</div>
+			</section>
 			<FormModal isOpen={isOpen} onClose={onClose} data={formData} />
-		</main>
+		</>
 	)
 }
 
