@@ -1,6 +1,6 @@
 import { Image, Link } from '@nextui-org/react'
 
-import { skills } from '../lib'
+import { skills } from '../lib/skills'
 import pdf from '/resume.pdf'
 
 const Resume = () => {
