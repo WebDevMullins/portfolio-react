@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Button, Input, Textarea } from '@nextui-org/react'
 import { Mail, MapPinned, Phone, Send } from 'lucide-react'
 
+// Defining the Form component with props
 const Form = ({ register, handleSubmit, errors, isSubmitting, onSubmit }) => {
 	Form.propTypes = {
 		register: PropTypes.func.isRequired,
@@ -12,6 +13,7 @@ const Form = ({ register, handleSubmit, errors, isSubmitting, onSubmit }) => {
 		onSubmit: PropTypes.func.isRequired
 	}
 
+	// Styling options for form elements
 	const options = {
 		label: 'text-black/50 dark:text-white/90',
 		input: [
@@ -34,10 +36,13 @@ const Form = ({ register, handleSubmit, errors, isSubmitting, onSubmit }) => {
 		],
 		errorMessage: ['w-fit', 'backdrop-blur-sm', 'backdrop-saturate-200', 'rounded-xl', 'p-1', 'text-white', 'text-sm']
 	}
+
+	// Rendering the Form component
 	return (
 		<div className='flex flex-col max-w-screen-md md:flex-row gap-0 justify-center border-2 border-neutral-400 rounded-3xl'>
 			<div className='flex md:w-[60%] p-8'>
 				<form onSubmit={handleSubmit(onSubmit)} className='flex flex-wrap gap-4'>
+					{/* Input fields for Name, Email, Company, and Message */}
 					<Input
 						{...register('name')}
 						isRequired
@@ -82,6 +87,7 @@ const Form = ({ register, handleSubmit, errors, isSubmitting, onSubmit }) => {
 						errorMessage={errors.message?.message}
 						classNames={options}
 					/>
+					{/* Submit Button */}
 					<Button
 						onClick={handleSubmit(onSubmit)}
 						isLoading={isSubmitting}
@@ -91,6 +97,7 @@ const Form = ({ register, handleSubmit, errors, isSubmitting, onSubmit }) => {
 					</Button>
 				</form>
 			</div>
+			{/* Contact Info Section */}
 			<div className='bg-transparent backdrop-saturate-200 flex flex-col md:w-[40%] justify-center gap-4 md:gap-8 p-8 rounded-b-3xl md:rounded-bl-none md:rounded-r-3xl'>
 				<div className='flex gap-4'>
 					<div className='flex flex-col'>

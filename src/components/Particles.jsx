@@ -1,23 +1,29 @@
-import { useEffect, useMemo, useState } from 'react'
-
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
+import { useEffect, useMemo, useState } from 'react'
 
 const Particle = () => {
+	// State to track initialization status
 	const [init, setInit] = useState(false)
 
+	// useEffect hook to initialize the tsParticles engine when the component mounts
 	useEffect(() => {
+		// Initializing the particles engine with the Slim preset
 		initParticlesEngine(async (engine) => {
 			await loadSlim(engine)
 		}).then(() => {
+			// Setting the initialization status to true once the engine is loaded
 			setInit(true)
 		})
 	}, [])
 
+	// Function to handle the loaded particles container
 	const particlesLoaded = (container) => {
+		// Logging the particles container to the console
 		console.log(container)
 	}
 
+	// Memoized options for configuring the particles
 	const options = useMemo(
 		() => ({
 			detectRetina: true,
@@ -70,7 +76,7 @@ const Particle = () => {
 					value: 250
 				},
 				opacity: {
-					value: .4
+					value: 0.4
 				},
 				shape: {
 					type: 'circle'
@@ -78,16 +84,19 @@ const Particle = () => {
 				size: {
 					value: { min: 0, max: 5 }
 				}
-			},
+			}
 		}),
 		[]
 	)
 
+	// Conditionally rendering the Particles component based on initialization status
 	if (init) {
 		return <Particles className='h-screen' loaded={particlesLoaded} options={options} />
 	}
 
+	// Returning an empty fragment if not yet initialized
 	return <></>
 }
 
+// Exporting the Particle component
 export default Particle

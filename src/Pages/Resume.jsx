@@ -1,15 +1,18 @@
 import { Image, Link } from '@nextui-org/react'
+
 import { skills } from '../lib'
 import pdf from '/resume.pdf'
 
 const Resume = () => {
 	return (
 		<>
-			<div className='flex flex-col items-center justify-center max-w-screen-xl px-4 gap-10'>
+			<section className='flex flex-col items-center justify-center max-w-screen-xl px-4 gap-10'>
 				<h1 className='text-3xl md:text-5xl font-extrabold capitalize text-center'>
 					Creating apps with modern technologies
 				</h1>
+				{/* Section for displaying skills with images */}
 				<section className='flex flex-wrap max-w-screen-lg justify-center gap-10 pt-10 items-center'>
+					{/* Mapping over the skills data to display skill images */}
 					{skills.map((skill, index) => (
 						<Image
 							key={index}
@@ -20,6 +23,7 @@ const Resume = () => {
 						/>
 					))}
 				</section>
+				{/* Link for downloading the resume PDF */}
 				<Link
 					href={pdf}
 					download='Brandon Mullins Resume.pdf'
@@ -29,7 +33,7 @@ const Resume = () => {
 					className='font-medium'>
 					Download My Resume
 				</Link>
-			</div>
+			</section>
 		</>
 	)
 }

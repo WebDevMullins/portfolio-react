@@ -2,6 +2,7 @@ import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from
 import PropTypes from 'prop-types'
 
 const FormModal = ({ isOpen, onClose, data }) => {
+	// PropType validation for the FormModal Component
 	FormModal.propTypes = {
 		isOpen: PropTypes.bool.isRequired,
 		onClose: PropTypes.func.isRequired,
@@ -10,6 +11,7 @@ const FormModal = ({ isOpen, onClose, data }) => {
 
 	return (
 		<>
+			{/* Modal component from NextUI for displaying a modal dialog */}
 			<Modal
 				backdrop='blur'
 				isOpen={isOpen}
@@ -26,8 +28,10 @@ const FormModal = ({ isOpen, onClose, data }) => {
 						<>
 							<ModalHeader className='flex flex-col gap-1'>Success!</ModalHeader>
 							<ModalBody>
+								<p className='font-semibold text-red-700'>This feature is currently in under development.</p>
+								<p className='font-semibold text-red-700'>Nothing will be sent.</p>
+								<p className='font-semibold text-red-700'>Please contact by email or phone.</p>
 								<p>Thank you, {data && data.name}!</p>
-								<p>The following information has been sent.</p>
 								<p>
 									Email - <br /> {data && data.email}
 								</p>

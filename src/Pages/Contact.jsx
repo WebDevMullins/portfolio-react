@@ -1,12 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useDisclosure } from '@nextui-org/react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { useDisclosure } from '@nextui-org/react'
-import { useState } from 'react'
 import Form from '../components/ui/Form'
 import FormModal from '../components/ui/Modal'
 
+// Validation schema for the contact form using Zod
 const formSchema = z.object({
 	name: z.string().min(4, 'Name must be at least 4 characters'),
 	email: z.string().email('Invalid email address'),
@@ -15,6 +16,7 @@ const formSchema = z.object({
 })
 
 const Contact = () => {
+	// React Hook Form (useForm) for handling form state and validation
 	const {
 		register,
 		handleSubmit,
@@ -25,13 +27,22 @@ const Contact = () => {
 		resolver: zodResolver(formSchema)
 	})
 
+	// NextUI useDisclosure for handling modal visibility
 	const { isOpen, onOpen, onClose } = useDisclosure()
+	// State to store form data
 	const [formData, setFormData] = useState(null)
+
+	// Form submission handler
 	const onSubmit = async (data) => {
+		// Simulating a delay (e.g., API request)
 		await new Promise((resolve) => setTimeout(resolve, 2000))
+		// Logging the form data
 		console.log(data)
+		// Updating the form data in the state
 		setFormData(data)
+		// Resetting the form after submission
 		reset()
+		// Opening the modal if submission was successful
 		onOpen(isSubmitSuccessful)
 	}
 
@@ -49,6 +60,7 @@ const Contact = () => {
 					/>
 				</div>
 			</section>
+			{/* Modal component for displaying a confirmation message */}
 			<FormModal isOpen={isOpen} onClose={onClose} data={formData} />
 		</>
 	)
