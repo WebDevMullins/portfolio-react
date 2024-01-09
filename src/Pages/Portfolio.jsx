@@ -49,7 +49,7 @@ const Portfolio = () => {
 		<main className="min-h-screen flex flex-col items-center justify-center mx-auto bg-cover bg-[url('/images/bg-blur.png')]">
 			<div className='flex flex-col items-center justify-center max-w-screen-xl px-4 gap-10 my-20 lg:my-0'>
 				<h1 className='text-2xl md:text-5xl text-white'>Projects</h1>
-				<p className='flex text-3xl md:text-6xl font-extrabold capitalize'>Take a Look at My Work</p>
+				<p className='text-3xl md:text-6xl font-extrabold capitalize text-center'>Take a Look at My Work</p>
 				<div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
 					{projects.map((project, index) => (
 						<Project
