@@ -3,12 +3,12 @@ import Particle from '../components/Particles'
 
 const About = () => {
 	return (
-		<main className="flex md:items-center h-dvh relative bg-cover bg-[url('/bg-explosion.png')]">
+		<main className="flex md:items-center h-dvh relative bg-cover bg-[url('/images/bg-explosion.png')]">
 			<div className='absolute top-[-10] right-0 h-full md:w-[75%] z-[2]'>
 				<Particle />
 			</div>
 			<div className='absolute right-0 lg:w-96 lg:h-96 xl:w-[560px] xl:h-[560px] bottom-10 z-[10] w-96 h-96 md:w-72 md:h-72 md:block lg:block xl:right-30 2xl:right-40'>
-				<Image src='/avatar.png' alt='Avatar pic' width={560} height={560} />
+				<Image src='/images/avatar.png' alt='Avatar pic' width={560} height={560} />
 			</div>
 			<div className='flex flex-col gap-3 z-[10] lg:pl-40 px-4 pt-36 md:pt-10 xl:pt-30'>
 				<h1 className='md:text-5xl text-white max-w-[500px] text-4xl'>
