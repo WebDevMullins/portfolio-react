@@ -68,7 +68,7 @@ const Navigation = () => {
 				{/* NavbarBrand component for the brand/logo section */}
 				<NavbarBrand className='gap-2'>
 					<Computer className='text-red-500 hidden lg:block' />
-					<Link className='font-semi text-xl lg:text-3xl text-inherit' href='/' aria-current='page'>
+					<Link className='font-semi text-xl lg:text-3xl text-inherit' href='/aboutme' aria-current='page'>
 						<h1>
 							Brandon <span className='font-thin'> Mullins</span>
 						</h1>

@@ -19,7 +19,7 @@ const router = createBrowserRouter(
 			element={
 				<>
 					<App />
-					{window.location.pathname !== ('/portfolio' || '/contact' || '/resume') && <Navigate to='/aboutme' replace />}
+					{['/portfolio', '/contact', '/resume'].includes(window.location.pathname) ? null : <Navigate to="/aboutme" replace />}
 				</>
 			}
 			errorElement={<ErrorPage />}>
@@ -27,9 +27,9 @@ const router = createBrowserRouter(
 			<Route path='*' element={<ErrorPage />} />
 
 			<Route element={<Layout />} errorElement={<ErrorPage />}>
-				<Route path='portfolio' element={<Portfolio />} />
-				<Route path='contact' element={<Contact />} />
-				<Route path='resume' element={<Resume />} />
+				<Route path='/portfolio' element={<Portfolio />} />
+				<Route path='/contact' element={<Contact />} />
+				<Route path='/resume' element={<Resume />} />
 			</Route>
 		</Route>
 	)
