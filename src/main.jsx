@@ -1,19 +1,39 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-// BrowserRouter from React Router for handling client-side routing
-import { BrowserRouter } from 'react-router-dom'
 
-import App from './App'
+import { Navigate, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+
 import './index.css'
 
-// Using ReactDOM.createRoot to render the app in the 'root' element
-ReactDOM.createRoot(document.getElementById('root')).render(
-	// Wrapping the entire app in React.StrictMode for additional development features
-	<React.StrictMode>
-		{/* BrowserRouter to provide client-side routing functionality */}
-		<BrowserRouter>
-			{/* Main App component that defines the structure of the application */}
-			<App />
-		</BrowserRouter>
-	</React.StrictMode>
+import App from './App'
+import About from './Pages/About'
+import Contact from './Pages/Contact'
+import ErrorPage from './Pages/Error'
+import Portfolio from './Pages/Portfolio'
+import Resume from './Pages/Resume'
+import Layout from './components/ui/Layout'
+
+const router = createBrowserRouter(
+	createRoutesFromElements(
+		<Route
+			path='/'
+			element={
+				<>
+					<App />
+					<Navigate to='aboutme' />
+				</>
+			}
+			errorElement={<ErrorPage />}>
+			<Route path='aboutme' element={<About />} />
+			<Route path='*' element={<ErrorPage />} />
+
+			<Route element={<Layout />} errorElement={<ErrorPage />}>
+				<Route path='portfolio' element={<Portfolio />} />
+				<Route path='contact' element={<Contact />} />
+				<Route path='resume' element={<Resume />} />
+			</Route>
+		</Route>
+	)
 )
+
+// Using ReactDOM.createRoot to render the app in the 'root' element
+ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={router} />)
