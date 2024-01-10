@@ -43,7 +43,7 @@ npm run dev
 
 ## Demo
 
-### [Deployed Site on Netlify](https://enchanting-halva-28b93d.netlify.app/)
+### [Deployed Site on Netlify](https://webdevmullins.netlify.app/)
 
 ![image](https://github.com/WebDevMullins/portfolio-react/assets/6474546/e89733e1-26ae-4d2c-a099-f213e5716c82)
 
