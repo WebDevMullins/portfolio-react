@@ -19,7 +19,7 @@ const router = createBrowserRouter(
 			element={
 				<>
 					<App />
-					<Navigate to='aboutme' />
+					{window.location.pathname !== ('/portfolio' || '/contact' || '/resume') && <Navigate to='/aboutme' replace />}
 				</>
 			}
 			errorElement={<ErrorPage />}>
