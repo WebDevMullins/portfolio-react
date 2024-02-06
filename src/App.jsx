@@ -1,5 +1,5 @@
 import { NextUIProvider } from '@nextui-org/react'
-import { inject } from '@vercel/analytics'
+import { Analytics } from '@vercel/analytics/react'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 import './App.css'
@@ -10,7 +10,6 @@ import Header from './components/Header'
 function App() {
 	// React Router hook for programmatic navigation
 	const navigate = useNavigate()
-	inject()
 
 	return (
 		<>
@@ -20,6 +19,7 @@ function App() {
 				<Outlet />
 				<Footer />
 			</NextUIProvider>
+			<Analytics />
 		</>
 	)
 }
