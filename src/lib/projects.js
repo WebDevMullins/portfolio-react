@@ -1,6 +1,6 @@
 export const projects = [
 	{
-		title: 'AIconic',
+		title: 'AIcons',
 		github: 'https://github.com/WebDevMullins/project-3',
 		href: 'https://project-3-8j08.onrender.com',
 		img: '/projects/aiconic.png'
