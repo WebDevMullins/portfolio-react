@@ -15,7 +15,7 @@ const About = () => {
 					Hi! I&apos;m <span className='text-red-500 font-semibold'>Brandon</span>.
 				</h1>
 				<p className='flex lg:text-lg text-md text-neutral-200 md:text-neutral-100 md:pb-2 max-w-[500px] 2xl:max-w-[600px] 2xl:text-2xl'>
-					I&apos;m a passionate and aspiring full-stack web developer currently on an exciting journey through a
+					I&apos;m a passionate and aspiring full-stack web developer that recently completed an exciting journey through a
 					rigorous boot camp.
 					<br />
 					<br />
