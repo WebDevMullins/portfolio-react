@@ -2,13 +2,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useDisclosure } from '@nextui-org/react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Resend } from 'resend'
 import { z } from 'zod'
 
 import Form from '../components/ui/Form'
 import FormModal from '../components/ui/Modal'
-
-const resend = new Resend('re_ZVNw4A5M_Lp3oRcCDiULGeUwDi3DQ8uHN')
 
 // Validation schema for the contact form using Zod
 const formSchema = z.object({
@@ -38,23 +35,11 @@ const Contact = () => {
 	// Form submission handler
 	const onSubmit = async (data) => {
 		// Simulating a delay (e.g., API request)
-		// await new Promise((resolve) => setTimeout(resolve, 2000))
+		await new Promise((resolve) => setTimeout(resolve, 2000))
 		// Logging the form data
-		console.log(data.name)
+		console.log(data)
 		// Updating the form data in the state
 		setFormData(data)
-
-		const { error } = await resend.emails.send({
-			from: '`${data.name}` <`${data.email}`>',
-			to: ['brandon@webdevmullins.com'],
-			subject: 'New Contact Form Submission',
-			html: 'New contact form submission from `${data.name}` <`${data.email}`> at `${data.company}`. Message: `${data.message}`'
-		})
-
-		if (error) {
-			return console.error(error)
-		}
-
 		// Resetting the form after submission
 		reset()
 		// Opening the modal if submission was successful
@@ -64,9 +49,7 @@ const Contact = () => {
 	return (
 		<>
 			<section className='flex flex-col items-center gap-y-10'>
-				<h1 className='flex text-3xl md:text-5xl font-extrabold capitalize'>
-					Get in touch with me
-				</h1>
+				<h1 className='flex text-3xl md:text-5xl font-extrabold capitalize'>Get in touch with me</h1>
 				<div className='px-4'>
 					<Form
 						register={register}
@@ -78,11 +61,7 @@ const Contact = () => {
 				</div>
 			</section>
 			{/* Modal component for displaying a confirmation message */}
-			<FormModal
-				isOpen={isOpen}
-				onClose={onClose}
-				data={formData}
-			/>
+			<FormModal isOpen={isOpen} onClose={onClose} data={formData} />
 		</>
 	)
 }

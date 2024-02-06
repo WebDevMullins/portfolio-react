@@ -1,5 +1,4 @@
 import { NextUIProvider } from '@nextui-org/react'
-import { Analytics } from '@vercel/analytics/react'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 import './App.css'
@@ -19,7 +18,6 @@ function App() {
 				<Outlet />
 				<Footer />
 			</NextUIProvider>
-			<Analytics />
 		</>
 	)
 }
